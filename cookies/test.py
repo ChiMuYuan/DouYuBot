@@ -1,24 +1,10 @@
-# import sqlite3
-#
-# con = sqlite3.connect('C:\\Users\\\\Desktop\\Cookies.sqlite')
-# cur = con.cursor()
-# con.row_factory = sqlite3.Row
-# # cur.execute("select * from sqlite_master where type='table'")
-# sql = "SELECT * FROM 'cookies' where host_key= \"%s\""%("www.douyu.com")
-# cur.execute(sql)
-# res = cur.fetchall()
-# print (type(res))
-# for i in range(len(res)) :
-#     print (res[i])
-
 # -*- coding: utf-8 -*-
 
 from ctypes import *
 from ctypes.wintypes import DWORD
 import sqlite3;
 
-# cookieFile='C:\Users\username\AppData\Local\Google\Chrome\User Data\Default\Cookies';
-cookieFile="C:\\Users\\**\\Desktop\\Cookies.sqlite"
+cookieFile="C:\\Users\\ChiMu\\AppData\\Local\\Google\\Chrome\\User Data\\Default\\Cookies"
 hostKey="www.douyu.com";
 
 LocalFree = windll.kernel32.LocalFree;
@@ -65,18 +51,11 @@ c = conn.cursor();
 sql = "select host_key, name, value, path,encrypted_value from cookies where host_key like \'%" + hostKey+"%\'";
 c.execute(sql);
 
-cookies = c.fetchmany(14);
+cookies = c.fetchall();
 c.close();
 
 for row in cookies:
     dc = decrypt(row[4]);
-    print( \
-"""
-host_key: {0}
-name: {1}
-path: {2}
-value: {3}
-encrpyted_value: {4}
-""".format(row[0], row[1], row[2], row[3], dc));
+    print('name: {0} encrpyted_value: {1}'.format(row[1], dc));
 
 
