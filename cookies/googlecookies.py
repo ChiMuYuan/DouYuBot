@@ -33,7 +33,7 @@ def decrypt(plainText):
 
 
 def getcookies():
-    RC = ReadConf.RConf("../ConfigPackage/")
+    RC = ReadConf.RConf("./ConfigPackage/")
     cookiesfile = RC.getcookiespath()
     host_key = RC.gethost_key()
     conn = sqlite3.connect(cookiesfile)
@@ -45,21 +45,7 @@ def getcookies():
     conn.close()
     cookies = []
     for sqlr in sqlresult:
-        if sqlr[0] == "room_id" or sqlr[0] == "username" or sqlr[0] == "ltkid" or sqlr[0] == "stk" :
-            cookies.append((sqlr[0], decrypt(sqlr[1]).decode()))
+        if sqlr[0] == "acf_username" or sqlr[0] == "acf_ltkid" or sqlr[0] == "acf_stk" :
+            cookies.append(sqlr[0])
+            cookies.append(decrypt(sqlr[1]).decode())
     return cookies
-
-
-RC = ReadConf.RConf("../ConfigPackage/")
-cookiesfile = RC.getcookiespath()
-host_key = RC.gethost_key()
-conn = sqlite3.connect(cookiesfile)
-cur = conn.cursor()
-sql = "select name, encrypted_value from cookies where host_key like \'%" + host_key + "%\'"
-cur.execute(sql)
-sqlresult = cur.fetchall()
-cur.close()
-conn.close()
-for sqlr in sqlresult:
-    if sqlr[0] == "acf_username" or sqlr[0] == "acf_ltkid" or sqlr[0] == "acf_stk":
-        print((sqlr[0], decrypt(sqlr[1]).decode()))

@@ -8,6 +8,8 @@ class RConf:
         self.host_key = conf.get('cookie', 'host_key')
         self.room_id = conf.getint('douyuinfo', 'room_id')
         self.nickname = conf.get('douyuinfo', 'nickname')
+        self.IP = conf.get('server', 'IP')
+        self.PORT = conf.getint('server', 'PORT')
 
     def getcookiespath(self):
         return self.cookiespath
@@ -20,3 +22,9 @@ class RConf:
 
     def getnickname(self):
         return self.nickname
+
+    def getIP(self):
+        return self.IP
+
+    def getPORT(self):
+        return self.PORT
