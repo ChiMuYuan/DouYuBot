@@ -1,1 +1,1 @@
-__all__ = ["ReadConf"]
+__all__ = ["ReadConf", "WriteConf"]

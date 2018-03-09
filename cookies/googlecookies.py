@@ -1,3 +1,4 @@
+#Client
 # -*- coding: utf-8 -*-
 
 from ctypes import *
@@ -33,7 +34,7 @@ def decrypt(plainText):
 
 
 def getcookies():
-    RC = ReadConf.RConf("./ConfigPackage/")
+    RC = ReadConf.RCConf("./ConfigPackage/")
     cookiesfile = RC.getcookiespath()
     host_key = RC.gethost_key()
     conn = sqlite3.connect(cookiesfile)
