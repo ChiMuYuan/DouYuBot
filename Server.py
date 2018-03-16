@@ -1,7 +1,6 @@
 import socket
 import time
 from ConfigPackage import *
-from ThreadPy import *
 
 HOST = '127.0.0.1'
 PORT = 8888
@@ -38,7 +37,6 @@ while True:
         while True:
             try:
                 print("[%s] 重新启动程序" % (time.strftime("%Y/%m/%d %H:%M:%S", time.localtime(time.time()))))
-                threadmain.threadmain()
                 break
             except Exception:
                 print("[%s] 启动失败" % (time.strftime("%Y/%m/%d %H:%M:%S", time.localtime(time.time()))))

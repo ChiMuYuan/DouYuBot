@@ -13,7 +13,7 @@ def sendCookies():
     sendData.append(str(RC.getroom_id()))
     sendData.append("nickname")
     sendData.append(RC.getnickname())
-    Socket = socket.socket(socket.AF_INET,socket.SOCK_STREAM)
+    Socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
     Socket.connect((IP,PORT))
     Socket.sendall(str(sendData).encode())
     recvdata = Socket.recv(1024)

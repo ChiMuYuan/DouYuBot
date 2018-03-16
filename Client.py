@@ -7,6 +7,7 @@ import time
 
 while True:
     hostname = socket.gethostname()
+    print(hostname)
     ip = socket.gethostbyname(hostname)
     if not (ip == '127.0.0.1'):
         break

@@ -1,6 +1,7 @@
 import test2
 from threading import *
 import test3
+import socket
 
 
 tt = Thread(target = test2.testtt, daemon = False)
