@@ -1,5 +1,5 @@
 import time
-import test3
+from TEST import test3
 
 def testtt():
     while test3.getbool():

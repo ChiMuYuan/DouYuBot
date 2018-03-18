@@ -7,6 +7,7 @@ PORT = 8888
 Socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 Socket.bind((HOST, PORT))
 Socket.listen(1)
+print("[%s] 启动程序" % (time.strftime("%Y/%m/%d %H:%M:%S", time.localtime(time.time()))))
 while True:
     conn,addr = Socket.accept()
     while True:

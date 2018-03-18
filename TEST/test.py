@@ -1,6 +1,5 @@
-import test2
 from threading import *
-import test3
+from TEST import tm
 import socket
 
 

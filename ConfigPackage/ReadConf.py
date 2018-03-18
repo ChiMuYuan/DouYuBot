@@ -1,5 +1,6 @@
-#Client/Server
+# Client/Server
 import configparser
+
 
 class RCConf:
     def __init__(self, path):
@@ -12,21 +13,14 @@ class RCConf:
         self.room_id = conf.getint('douyuinfo', 'room_id')
         self.nickname = conf.get('douyuinfo', 'nickname')
 
-    def getIP(self):
-        return self.IP
-
-    def getPORT(self):
-        return self.PORT
-
-    def getcookiespath(self):
-        return self.cookiespath
-
-    def gethost_key(self):
-        return self.host_key
-
-    def getroom_id(self):
-        return self.room_id
-
-    def getnickname(self):
-        return self.nickname
-
+class RSConf:
+    def __init__(self, path):
+        conf = configparser.ConfigParser()
+        conf.read_file(open(path + 'DouYuDMS.ini', 'r'))
+        self.IP = conf.get('server', 'IP')
+        self.PORT = conf.getint('server', 'PORT')
+        self.acf_username = conf.get('cookie', 'acf_username')
+        self.acf_ltkid = conf.get('cookie', 'acf_ltkid')
+        self.acf_stk = conf.get('cookie', 'acf_stk')
+        self.room_id = conf.getint('douyuinfo', 'room_id')
+        self.nickname = conf.get('douyuinfo', 'nickname')
