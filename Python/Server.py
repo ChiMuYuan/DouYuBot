@@ -1,6 +1,6 @@
-import socket
-import time
+import socket, time
 from ConfigPackage import *
+from PyBG import GloVar
 
 HOST = '127.0.0.1'
 PORT = 8888
@@ -35,10 +35,12 @@ while True:
         sendIP = conn.getpeername()
         print("[%s] 接受到%s:%d发送的信息" %(time.strftime("%Y/%m/%d %H:%M:%S", time.localtime(time.time())), sendIP[0],
                                      sendIP[1]))
-        while True:
-            try:
-                print("[%s] 重新启动程序" % (time.strftime("%Y/%m/%d %H:%M:%S", time.localtime(time.time()))))
-                break
-            except Exception:
-                print("[%s] 启动失败" % (time.strftime("%Y/%m/%d %H:%M:%S", time.localtime(time.time()))))
+        # while True:
+        #     try:
+        #         GloVar.setMain(False)
+        #         print("[%s] 重新启动程序" % (time.strftime("%Y/%m/%d %H:%M:%S", time.localtime(time.time()))))
+        #         GloVar.setMain(True)
+        #         break
+        #     except Exception:
+        #         print("[%s] 启动失败" % (time.strftime("%Y/%m/%d %H:%M:%S", time.localtime(time.time()))))
     conn.close()

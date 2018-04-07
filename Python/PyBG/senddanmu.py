@@ -1,4 +1,4 @@
-import time,uuid,hashlib, socket
+import time, uuid, hashlib, socket
 from PyBG import DouYucode
 from ConfigPackage import ReadConf
 
